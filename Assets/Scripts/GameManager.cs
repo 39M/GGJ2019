@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 using DG.Tweening;
 
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     public float startTime = 0;
 
     VideoPlayer video;
+    public VideoClip videoClipOP;
     public VideoClip videoClipED;
     public GameObject videoMask;
 
@@ -36,6 +38,8 @@ public class GameManager : MonoBehaviour
 
     public float audioTime;
 
+    public Slider slider;
+
     void Start()
     {
         video = GetComponent<VideoPlayer>();
@@ -47,6 +51,7 @@ public class GameManager : MonoBehaviour
         {
             video.time = startTime;
             videoMask.SetActive(true);
+            slider.gameObject.SetActive(false);
         }
 
         audio = GetComponent<AudioSource>();
@@ -117,12 +122,19 @@ public class GameManager : MonoBehaviour
         {
             video.enabled = false;
             videoMask.SetActive(false);
+            slider.gameObject.SetActive(true);
         }
         if (audio.time >= gameConst.edTime)
         {
+            slider.gameObject.SetActive(false);
             video.clip = videoClipED;
             video.enabled = true;
             video.Play();
+        }
+
+        if (slider.gameObject.activeSelf)
+        {
+            slider.value = (float)((audio.time - videoClipOP.length) / (gameConst.edTime - videoClipOP.length));
         }
     }
 
