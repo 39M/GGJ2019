@@ -15,10 +15,15 @@ public class GameManager : MonoBehaviour
     public NoteInfo currentNoteInfo;
     public List<Note> noteList = new List<Note>();
 
+    public Animator humanAnimator;
     public Animator petAnimator;
 
     public GameObject missEffectPrefab;
     public GameObject hitEffectPrefab;
+
+    public float humanHp = 100;
+    public GameObject humanBloodHp66;
+    public GameObject humanBloodHp33;
 
     void Start()
     {
@@ -50,6 +55,9 @@ public class GameManager : MonoBehaviour
         currentNoteInfo = noteInfoList[noteInfoIndex];
 
         DOTween.defaultEaseType = Ease.Linear;
+
+        humanBloodHp33.SetActive(false);
+        humanBloodHp66.SetActive(false);
     }
 
     void Update()
@@ -167,6 +175,16 @@ public class GameManager : MonoBehaviour
 
         Destroy(note.gameObject);
         noteList.Remove(note);
+
+        humanHp -= gameConst.missHpDrop;
+        if (33 - gameConst.missHpDrop / 2 <= humanHp && humanHp <= 33 + gameConst.missHpDrop / 2)
+        {
+            humanBloodHp33.SetActive(true);
+        }
+        else if (66 - gameConst.missHpDrop / 2 <= humanHp && humanHp <= 66 + gameConst.missHpDrop / 2)
+        {
+            humanBloodHp66.SetActive(true);
+        }
 
         // audio
         // animation

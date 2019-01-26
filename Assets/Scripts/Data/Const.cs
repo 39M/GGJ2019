@@ -22,6 +22,9 @@ public class Const : ScriptableObject
     [Tooltip("在空中运行的时间")]
     public float lifetime;
 
+    [Tooltip("每次 Miss 扣的 HP")]
+    public float missHpDrop;
+
     [Tooltip("物体的 Prefab，序号和表中第三列对应")]
     public List<GameObject> notePrefabs;
 }

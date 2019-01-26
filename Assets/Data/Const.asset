@@ -20,5 +20,6 @@ MonoBehaviour:
   targetScale: 0.4
   hitRange: 0.25
   lifetime: 2
+  missHpDrop: 10
   notePrefabs:
   - {fileID: 846653082048187044, guid: 7ae1b55190ffb3a4ca32ad831aa79578, type: 3}

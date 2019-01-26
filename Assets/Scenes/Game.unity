@@ -403,11 +403,15 @@ MonoBehaviour:
   soundEffect: {fileID: 8300000, guid: 1b190e66edd5f3942b48bf25096925f1, type: 3}
   gameConst: {fileID: 11400000, guid: 4ece9adf76f079d4da45f937d2423815, type: 2}
   noteInfoIndex: 0
+  humanAnimator: {fileID: 2771076194680681984}
   petAnimator: {fileID: 4358392632277025370}
   missEffectPrefab: {fileID: 2588883770500151262, guid: 8983452f37e5312469fef2469ab9b200,
     type: 3}
   hitEffectPrefab: {fileID: 326035744297810068, guid: 952471e32091d104fa224a184589e403,
     type: 3}
+  humanHp: 100
+  humanBloodHp66: {fileID: 2639988488628271260}
+  humanBloodHp33: {fileID: 2172521064864700709}
 --- !u!4 &2131945694
 Transform:
   m_ObjectHideFlags: 0
@@ -422,6 +426,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2172521064864700709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2172521064864700709, guid: 6b8c6a3bdc8c5e442827bd7429932de0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2749479138710404277}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &2639988488628271260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2639988488628271260, guid: 6b8c6a3bdc8c5e442827bd7429932de0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2749479138710404277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2749479138710404277
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -491,6 +507,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b8c6a3bdc8c5e442827bd7429932de0, type: 3}
+--- !u!95 &2771076194680681984 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2771076194680681984, guid: 6b8c6a3bdc8c5e442827bd7429932de0,
+    type: 3}
+  m_PrefabInstance: {fileID: 2749479138710404277}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &4358392632277025370 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 4358392632277025370, guid: 1d90ec1c758638a4e9d2cf87d02a7e8c,
@@ -517,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 6329526537483432205, guid: 1d90ec1c758638a4e9d2cf87d02a7e8c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.28
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 6329526537483432205, guid: 1d90ec1c758638a4e9d2cf87d02a7e8c,
         type: 3}
