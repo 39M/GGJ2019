@@ -18,8 +18,8 @@ MonoBehaviour:
   rightTargetPosition: {x: 0, y: -1, z: 0}
   spawnScale: 1
   targetScale: 0.2
-  hitRange: 0.25
-  lifetime: 3
+  hitRange: 0.2
+  lifetime: 1
   missHpDrop: 10
   edTime: 0
   notePrefabs:
