@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9e94d5095e37f24a9e0016a83a1ab99, type: 3}
   m_Name: Const
   m_EditorClassIdentifier: 
-  leftSpawnPosition: {x: -10, y: -2, z: 0}
-  leftTargetPosition: {x: 0, y: -1, z: 0}
-  rightSpawnPosition: {x: 10, y: -2, z: 0}
-  rightTargetPosition: {x: 0, y: -1, z: 0}
+  leftSpawnPositionMin: {x: -10, y: -2, z: 0}
+  leftSpawnPositionMax: {x: -10, y: 2, z: 0}
+  leftTargetPosition: {x: -1, y: 0, z: 0}
+  rightSpawnPositionMin: {x: 10, y: -2, z: 0}
+  rightSpawnPositionMax: {x: 10, y: 2, z: 0}
+  rightTargetPosition: {x: 1, y: 0, z: 0}
   spawnScale: 1
   targetScale: 0.2
   hitRange: 0.2

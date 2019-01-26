@@ -143,7 +143,9 @@ public class GameManager : MonoBehaviour
         while (noteInfoIndex < noteInfoList.Count && currentNoteInfo.beatTime + gameConst.hitRange - gameConst.lifetime < audio.time)
         {
             GameObject gameObject = Instantiate(currentNoteInfo.prefab);
-            gameObject.transform.position = currentNoteInfo.isLeft ? gameConst.leftSpawnPosition : gameConst.rightSpawnPosition;
+            gameObject.transform.position = currentNoteInfo.isLeft ?
+                Vector3.Lerp(gameConst.leftSpawnPositionMin, gameConst.leftSpawnPositionMax, UnityEngine.Random.value)
+                : Vector3.Lerp(gameConst.rightSpawnPositionMin, gameConst.rightSpawnPositionMax, UnityEngine.Random.value);
             gameObject.transform.localScale = new Vector3(gameConst.spawnScale, gameConst.spawnScale, gameConst.spawnScale);
             gameObject.transform.DOScale(gameConst.targetScale, gameConst.lifetime).SetEase(Ease.Linear);
 

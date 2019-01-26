@@ -5,11 +5,13 @@ using UnityEngine;
 public class Const : ScriptableObject
 {
     [Tooltip("从左边出生的位置")]
-    public Vector3 leftSpawnPosition;
+    public Vector3 leftSpawnPositionMin;
+    public Vector3 leftSpawnPositionMax;
     [Tooltip("从左边最终的位置")]
     public Vector3 leftTargetPosition;
     [Tooltip("从右边出生的位置")]
-    public Vector3 rightSpawnPosition;
+    public Vector3 rightSpawnPositionMin;
+    public Vector3 rightSpawnPositionMax;
     [Tooltip("从右边最终的位置")]
     public Vector3 rightTargetPosition;
     [Tooltip("出生的尺寸")]
