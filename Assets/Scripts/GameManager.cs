@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour
     public Animator humanAnimator;
     public Animator petAnimator;
     public RuntimeAnimatorController petNormalController;
+    public RuntimeAnimatorController petNormalControllerHurt;
+    public RuntimeAnimatorController petNormalControllerHurtMore;
     public RuntimeAnimatorController petWhenWakeUpController;
+    public RuntimeAnimatorController petWhenWakeUpControllerHurt;
 
     public GameObject missEffectPrefab;
     public GameObject hitEffectPrefab;
@@ -96,6 +99,8 @@ public class GameManager : MonoBehaviour
         humanBloodHp66.SetActive(false);
     }
 
+    bool passSecond = false;
+    bool passThird = false;
     void Update()
     {
         audioTime = audio.time;
@@ -106,13 +111,31 @@ public class GameManager : MonoBehaviour
             humanAnimator.Play(stateName);
             if (stateName.Equals("OpenEye"))
             {
-                petAnimator.runtimeAnimatorController = petWhenWakeUpController;
+                if (audio.time < gameConst.secondStageTime)
+                    petAnimator.runtimeAnimatorController = petWhenWakeUpController;
+                else
+                    petAnimator.runtimeAnimatorController = petWhenWakeUpControllerHurt;
             }
             else
             {
-                petAnimator.runtimeAnimatorController = petNormalController;
+                if (audio.time < gameConst.secondStageTime)
+                    petAnimator.runtimeAnimatorController = petNormalController;
+                else
+                    petAnimator.runtimeAnimatorController = petNormalControllerHurt;
             }
             humanStateIndex++;
+        }
+
+        if (audio.time > gameConst.secondStageTime && !passSecond)
+        {
+            petAnimator.runtimeAnimatorController = petNormalControllerHurt;
+            passSecond = true;
+        }
+
+        if (audio.time > gameConst.thirdStageTime && !passThird)
+        {
+            petAnimator.runtimeAnimatorController = petNormalControllerHurtMore;
+            passThird = true;
         }
 
         CreateNotes();

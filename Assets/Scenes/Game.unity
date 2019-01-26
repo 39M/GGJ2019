@@ -254,8 +254,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 99e9ca4f5a1aae84ebb7c8594938556f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -456,11 +456,11 @@ RectTransform:
   m_Father: {fileID: 89041176}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 1}
-  m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -75}
-  m_SizeDelta: {x: 1000, y: 100}
-  m_Pivot: {x: 0.5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 15}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1273797852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -546,7 +546,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 0}
+  m_SizeDelta: {x: 15, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1488280481
 Animator:
@@ -639,7 +639,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729189528
 MonoBehaviour:
@@ -661,8 +661,8 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: fda840ef52d58d6439d3bd60a3611780, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0d0043c304fb429897070acb888dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 0
+  startTime: 45
   videoClipOP: {fileID: 32900000, guid: 5382776d8af827d40a70ad2b55091d2e, type: 3}
   videoClipED: {fileID: 32900000, guid: 51658c1428a70b24bbf1b1171cb1a1b5, type: 3}
   videoMask: {fileID: 58950393}
@@ -1016,7 +1016,13 @@ MonoBehaviour:
   humanAnimator: {fileID: 2771076194680681984}
   petAnimator: {fileID: 4358392632277025370}
   petNormalController: {fileID: 9100000, guid: 892cfa693b30a0b4baa56f0a681380c9, type: 2}
+  petNormalControllerHurt: {fileID: 9100000, guid: f6547e3874ab89e4d89a0175af94079d,
+    type: 2}
+  petNormalControllerHurtMore: {fileID: 9100000, guid: ab42358c91226e040a97773f30c08336,
+    type: 2}
   petWhenWakeUpController: {fileID: 9100000, guid: d04e7ad3f3ac64247ba5827d827af87a,
+    type: 2}
+  petWhenWakeUpControllerHurt: {fileID: 9100000, guid: 752381e0f032b954fad5e55d8428b63c,
     type: 2}
   missEffectPrefab: {fileID: 2588883770500151262, guid: 8983452f37e5312469fef2469ab9b200,
     type: 3}
