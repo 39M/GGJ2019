@@ -60,13 +60,13 @@ public class GameManager : MonoBehaviour
         foreach (var line in lines)
         {
             var fields = line.Split(new[] { ",", ", ", "\t" }, StringSplitOptions.RemoveEmptyEntries);
-            if (fields.Length >= 3)
+            if (fields.Length >= 2)
             {
                 NoteInfo noteInfo = new NoteInfo
                 {
                     beatTime = float.Parse(fields[0]),
                     isLeft = int.Parse(fields[1]) == 1,
-                    prefab = gameConst.notePrefabs[int.Parse(fields[2])],
+                    prefab = gameConst.notePrefabs[UnityEngine.Random.Range(0, gameConst.notePrefabs.Count)],
                 };
                 noteInfoList.Add(noteInfo);
             }
