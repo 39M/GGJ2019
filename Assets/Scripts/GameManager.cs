@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public NoteInfo currentNoteInfo;
     public List<Note> noteList = new List<Note>();
 
+    public GameObject missEffectPrefab;
+    public GameObject hitEffectPrefab;
+
     void Start()
     {
         audio = GetComponent<AudioSource>();
@@ -125,6 +128,10 @@ public class GameManager : MonoBehaviour
     {
         Debug.LogFormat("命中，时间：{0}，节奏点时间：{1}，准确度：{2:P}", audio.time, note.info.beatTime, Mathf.Abs(note.info.beatTime - audio.time) / gameConst.hitRange);
 
+        GameObject effect = Instantiate(hitEffectPrefab);
+        effect.transform.position = note.gameObject.transform.position;
+        Destroy(effect, 1);
+
         Destroy(note.gameObject);
         noteList.Remove(note);
         audio.PlayOneShot(soundEffect);
@@ -136,6 +143,10 @@ public class GameManager : MonoBehaviour
 
     void OnMiss(Note note)
     {
+        GameObject effect = Instantiate(missEffectPrefab);
+        effect.transform.position = note.gameObject.transform.position;
+        Destroy(effect, 1);
+
         Destroy(note.gameObject);
         noteList.Remove(note);
 
