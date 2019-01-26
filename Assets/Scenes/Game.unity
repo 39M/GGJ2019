@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0d0043c304fb429897070acb888dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 45
+  startTime: 0
   videoClipOP: {fileID: 32900000, guid: 5382776d8af827d40a70ad2b55091d2e, type: 3}
   videoClipED: {fileID: 32900000, guid: 51658c1428a70b24bbf1b1171cb1a1b5, type: 3}
   videoMask: {fileID: 58950393}
