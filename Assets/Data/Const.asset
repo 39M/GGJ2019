@@ -13,16 +13,18 @@ MonoBehaviour:
   m_Name: Const
   m_EditorClassIdentifier: 
   leftSpawnPositionMin: {x: -10, y: -2, z: 0}
-  leftSpawnPositionMax: {x: -10, y: 2, z: 0}
-  leftTargetPosition: {x: -1, y: 0, z: 0}
+  leftSpawnPositionMax: {x: -10, y: 1, z: 0}
+  leftTargetPosition: {x: -1, y: -1, z: 0}
   rightSpawnPositionMin: {x: 10, y: -2, z: 0}
-  rightSpawnPositionMax: {x: 10, y: 2, z: 0}
-  rightTargetPosition: {x: 1, y: 0, z: 0}
-  spawnScale: 1
-  targetScale: 0.2
+  rightSpawnPositionMax: {x: 10, y: 1, z: 0}
+  rightTargetPosition: {x: 1, y: -1, z: 0}
+  spawnScale: 1.5
+  targetScale: 0.5
   hitRange: 0.2
-  lifetime: 1
-  missHpDrop: 10
+  lifetime: 2
+  missHpDrop: 5
+  secondStageTime: 65.28
+  thirdStageTime: 130.56
   edTime: 175.16
   notePrefabs:
   - {fileID: 6943952165953580810, guid: 1ab31b8ebc608b74c930127e6ef67d2d, type: 3}
