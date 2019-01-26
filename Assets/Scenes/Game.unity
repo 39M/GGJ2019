@@ -557,8 +557,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0d0043c304fb429897070acb888dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTime: 8
-  soundEffect: {fileID: 0}
+  startTime: 0
+  soundEffect: {fileID: 8300000, guid: 1b190e66edd5f3942b48bf25096925f1, type: 3}
   gameConst: {fileID: 11400000, guid: 4ece9adf76f079d4da45f937d2423815, type: 2}
   noteInfoIndex: 0
 --- !u!4 &2131945694

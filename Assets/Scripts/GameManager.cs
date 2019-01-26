@@ -99,14 +99,6 @@ public class GameManager : MonoBehaviour
         {
             inputRight = true;
         }
-        if (inputLeft)
-        {
-            audio.PlayOneShot(soundEffect);
-        }
-        if (inputRight)
-        {
-            audio.PlayOneShot(soundEffect);
-        }
 
         foreach (var note in noteList)
         {
@@ -135,6 +127,7 @@ public class GameManager : MonoBehaviour
 
         Destroy(note.gameObject);
         noteList.Remove(note);
+        audio.PlayOneShot(soundEffect);
 
         // audio
         // animation
