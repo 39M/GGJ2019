@@ -411,7 +411,7 @@ Camera:
   m_TargetDisplay: 0
   m_TargetEye: 3
   m_HDR: 1
-  m_AllowMSAA: 1
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
   m_OcclusionCulling: 1
@@ -459,7 +459,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 17371d4e1fff46449a297ceeb013f082, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -557,10 +557,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0b0d0043c304fb429897070acb888dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: {fileID: 11400000, guid: 944114edcbfa95c4fbaa7952a9541f48, type: 2}
+  startTime: 8
+  soundEffect: {fileID: 0}
   gameConst: {fileID: 11400000, guid: 4ece9adf76f079d4da45f937d2423815, type: 2}
   noteInfoIndex: 0
-  currentNoteInfo: {fileID: 0}
 --- !u!4 &2131945694
 Transform:
   m_ObjectHideFlags: 0

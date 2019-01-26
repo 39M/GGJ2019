@@ -1,12 +1,16 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
+    public float startTime = 0;
+
     new AudioSource audio;
-    public Level level;
+    public AudioClip soundEffect;
     public Const gameConst;
+    public List<NoteInfo> noteInfoList = new List<NoteInfo>();
     public int noteInfoIndex = 0;
     public NoteInfo currentNoteInfo;
     public List<Note> noteList = new List<Note>();
@@ -14,10 +18,31 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         audio = GetComponent<AudioSource>();
-        audio.clip = level.bgm;
+        audio.time = startTime;
         audio.Play();
 
-        currentNoteInfo = level.noteInfoList[0];
+        var textAsset = Resources.Load<TextAsset>("NoteInfo");
+        var lines = textAsset.text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
+        foreach (var line in lines)
+        {
+            var fields = line.Split(new[] { ",", ", " }, StringSplitOptions.RemoveEmptyEntries);
+            if (fields.Length >= 3)
+            {
+                NoteInfo noteInfo = new NoteInfo
+                {
+                    beatTime = float.Parse(fields[0]),
+                    isLeft = int.Parse(fields[1]) == 1,
+                    prefab = gameConst.notePrefabs[int.Parse(fields[2])],
+                };
+                noteInfoList.Add(noteInfo);
+            }
+        }
+
+        while (noteInfoList[noteInfoIndex].beatTime + gameConst.hitRange - gameConst.lifetime < startTime)
+        {
+            noteInfoIndex++;
+        }
+        currentNoteInfo = noteInfoList[noteInfoIndex];
 
         DOTween.defaultEaseType = Ease.Linear;
     }
@@ -30,13 +55,12 @@ public class GameManager : MonoBehaviour
 
     void CreateNotes()
     {
-        while (noteInfoIndex < level.noteInfoList.Count && currentNoteInfo.spawnTime < audio.time)
+        while (noteInfoIndex < noteInfoList.Count && currentNoteInfo.beatTime + gameConst.hitRange - gameConst.lifetime < audio.time)
         {
             GameObject gameObject = Instantiate(currentNoteInfo.prefab);
-            float lifetime = currentNoteInfo.beatTime + gameConst.hitRange - audio.time;
             gameObject.transform.position = currentNoteInfo.isLeft ? gameConst.leftSpawnPosition : gameConst.rightSpawnPosition;
             gameObject.transform.localScale = new Vector3(gameConst.spawnScale, gameConst.spawnScale, gameConst.spawnScale);
-            gameObject.transform.DOScale(gameConst.targetScale, lifetime);
+            gameObject.transform.DOScale(gameConst.targetScale, gameConst.lifetime).SetEase(Ease.Linear);
 
             Note note = new Note
             {
@@ -47,13 +71,13 @@ public class GameManager : MonoBehaviour
             noteList.Add(note);
 
             gameObject.transform.DOMove(currentNoteInfo.isLeft ? gameConst.leftTargetPosition : gameConst.rightTargetPosition,
-                lifetime).OnComplete(() =>
+                gameConst.lifetime).SetEase(Ease.Linear).OnComplete(() =>
                 {
                     OnMiss(note);
                 });
 
             noteInfoIndex++;
-            currentNoteInfo = noteInfoIndex < level.noteInfoList.Count ? level.noteInfoList[noteInfoIndex] : null;
+            currentNoteInfo = noteInfoIndex < noteInfoList.Count ? noteInfoList[noteInfoIndex] : null;
         }
     }
 
@@ -74,6 +98,14 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
         {
             inputRight = true;
+        }
+        if (inputLeft)
+        {
+            audio.PlayOneShot(soundEffect);
+        }
+        if (inputRight)
+        {
+            audio.PlayOneShot(soundEffect);
         }
 
         foreach (var note in noteList)
