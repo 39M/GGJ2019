@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public float startTime = 0;
 
     VideoPlayer video;
+    public VideoClip videoClipED;
 
     new AudioSource audio;
     public AudioClip soundEffect;
@@ -37,6 +38,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         video = GetComponent<VideoPlayer>();
+        if (startTime > video.length)
+            video.enabled = false;
 
         audio = GetComponent<AudioSource>();
         audio.time = startTime;
@@ -67,7 +70,7 @@ public class GameManager : MonoBehaviour
         {
             currentNoteInfo = noteInfoList[noteInfoIndex];
         }
-        while (gameConst.humanStateChanges[humanStateIndex].time < startTime)
+        while (humanStateIndex < gameConst.humanStateChanges.Count && gameConst.humanStateChanges[humanStateIndex].time < startTime)
         {
             humanStateIndex++;
         }
@@ -100,6 +103,17 @@ public class GameManager : MonoBehaviour
         CreateNotes();
         CheckHit();
 
+
+        if (audio.time < gameConst.edTime && audio.time >= video.length && video.enabled)
+        {
+            video.enabled = false;
+        }
+        if (audio.time >= gameConst.edTime)
+        {
+            video.clip = videoClipED;
+            video.enabled = true;
+            video.Play();
+        }
     }
 
     void CreateNotes()

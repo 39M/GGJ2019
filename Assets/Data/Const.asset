@@ -21,7 +21,7 @@ MonoBehaviour:
   hitRange: 0.2
   lifetime: 1
   missHpDrop: 10
-  edTime: 0
+  edTime: 175.16
   notePrefabs:
   - {fileID: 846653082048187044, guid: 7ae1b55190ffb3a4ca32ad831aa79578, type: 3}
   humanStateChanges:

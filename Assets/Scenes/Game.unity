@@ -401,6 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startTime: 0
+  videoClipED: {fileID: 32900000, guid: 51658c1428a70b24bbf1b1171cb1a1b5, type: 3}
   soundEffect: {fileID: 8300000, guid: 1b190e66edd5f3942b48bf25096925f1, type: 3}
   gameConst: {fileID: 11400000, guid: 4ece9adf76f079d4da45f937d2423815, type: 2}
   noteInfoIndex: 0
@@ -449,7 +450,7 @@ VideoPlayer:
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
   m_RenderMode: 1
-  m_AspectRatio: 2
+  m_AspectRatio: 4
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 0
