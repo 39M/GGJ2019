@@ -13,14 +13,15 @@ MonoBehaviour:
   m_Name: Const
   m_EditorClassIdentifier: 
   leftSpawnPosition: {x: -10, y: -2, z: 0}
-  leftTargetPosition: {x: 0, y: 0, z: 0}
+  leftTargetPosition: {x: 0, y: -1, z: 0}
   rightSpawnPosition: {x: 10, y: -2, z: 0}
-  rightTargetPosition: {x: 0, y: 0, z: 0}
+  rightTargetPosition: {x: 0, y: -1, z: 0}
   spawnScale: 1
-  targetScale: 0.4
+  targetScale: 0.2
   hitRange: 0.25
-  lifetime: 2
+  lifetime: 3
   missHpDrop: 10
+  edTime: 0
   notePrefabs:
   - {fileID: 846653082048187044, guid: 7ae1b55190ffb3a4ca32ad831aa79578, type: 3}
   humanStateChanges:
