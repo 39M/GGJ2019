@@ -27,6 +27,11 @@ public class Const : ScriptableObject
     [Tooltip("每次 Miss 扣的 HP")]
     public float missHpDrop;
 
+    [Tooltip("第二阶段的时间")]
+    public float secondStageTime;
+    [Tooltip("第三阶段的时间")]
+    public float thirdStageTime;
+
     [Tooltip("ED 播放时间")]
     public float edTime;
 
