@@ -106,15 +106,11 @@ public class GameManager : MonoBehaviour
         }
         if (inputLeft)
         {
-            petAnimator.transform.localScale = new Vector3(1, 1, 1);
+            petAnimator.Play("AttackLeft" + UnityEngine.Random.Range(1, 8).ToString());
         }
         if (inputRight)
         {
-            petAnimator.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        if (inputLeft || inputRight)
-        {
-            petAnimator.Play("Attack1");
+            petAnimator.Play("AttackRight" + UnityEngine.Random.Range(1, 8).ToString());
         }
 
         foreach (var note in noteList)
