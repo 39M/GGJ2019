@@ -41,3 +41,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Background
+    uniqueID: 3770770065
+    locked: 0
+  - name: Human
+    uniqueID: 1258123697
+    locked: 0
+  - name: Animal
+    uniqueID: 366958971
+    locked: 0
+  - name: Note
+    uniqueID: 3914166507
+    locked: 0
+  - name: Effect
+    uniqueID: 2061152929
+    locked: 0
