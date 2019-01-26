@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Video;
 using DG.Tweening;
 
 public class GameManager : MonoBehaviour
 {
     public float startTime = 0;
+
+    VideoPlayer video;
 
     new AudioSource audio;
     public AudioClip soundEffect;
@@ -33,6 +36,8 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        video = GetComponent<VideoPlayer>();
+
         audio = GetComponent<AudioSource>();
         audio.time = startTime;
         audio.Play();
@@ -57,10 +62,10 @@ public class GameManager : MonoBehaviour
         while (noteInfoIndex < noteInfoList.Count && noteInfoList[noteInfoIndex].beatTime + gameConst.hitRange - gameConst.lifetime < startTime)
         {
             noteInfoIndex++;
-            if (noteInfoIndex < noteInfoList.Count)
-            {
-                currentNoteInfo = noteInfoList[noteInfoIndex];
-            }
+        }
+        if (noteInfoIndex < noteInfoList.Count)
+        {
+            currentNoteInfo = noteInfoList[noteInfoIndex];
         }
         while (gameConst.humanStateChanges[humanStateIndex].time < startTime)
         {

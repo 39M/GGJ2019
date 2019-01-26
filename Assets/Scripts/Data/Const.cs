@@ -25,6 +25,9 @@ public class Const : ScriptableObject
     [Tooltip("每次 Miss 扣的 HP")]
     public float missHpDrop;
 
+    [Tooltip("ED 播放时间")]
+    public float edTime;
+
     [Tooltip("物体的 Prefab，序号和表中第三列对应")]
     public List<GameObject> notePrefabs;
 
