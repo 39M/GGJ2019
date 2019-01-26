@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public NoteInfo currentNoteInfo;
     public List<Note> noteList = new List<Note>();
 
+    public Animator petAnimator;
+
     public GameObject missEffectPrefab;
     public GameObject hitEffectPrefab;
 
@@ -102,6 +104,18 @@ public class GameManager : MonoBehaviour
         {
             inputRight = true;
         }
+        if (inputLeft)
+        {
+            petAnimator.transform.localScale = new Vector3(1, 1, 1);
+        }
+        if (inputRight)
+        {
+            petAnimator.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        if (inputLeft || inputRight)
+        {
+            petAnimator.Play("Attack1");
+        }
 
         foreach (var note in noteList)
         {
@@ -130,7 +144,11 @@ public class GameManager : MonoBehaviour
 
         GameObject effect = Instantiate(hitEffectPrefab);
         effect.transform.position = note.gameObject.transform.position;
-        Destroy(effect, 1);
+        if (note.info.isLeft)
+        {
+            effect.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        Destroy(effect, effect.GetComponent<Animator>().runtimeAnimatorController.animationClips[0].length);
 
         Destroy(note.gameObject);
         noteList.Remove(note);
@@ -145,7 +163,11 @@ public class GameManager : MonoBehaviour
     {
         GameObject effect = Instantiate(missEffectPrefab);
         effect.transform.position = note.gameObject.transform.position;
-        Destroy(effect, 1);
+        if (note.info.isLeft)
+        {
+            effect.transform.localScale = new Vector3(-1, 1, 1);
+        }
+        Destroy(effect, effect.GetComponent<Animator>().runtimeAnimatorController.animationClips[0].length);
 
         Destroy(note.gameObject);
         noteList.Remove(note);
