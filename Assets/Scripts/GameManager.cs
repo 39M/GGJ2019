@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         var lines = textAsset.text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
         foreach (var line in lines)
         {
-            var fields = line.Split(new[] { ",", ", " }, StringSplitOptions.RemoveEmptyEntries);
+            var fields = line.Split(new[] { ",", ", ", "\t" }, StringSplitOptions.RemoveEmptyEntries);
             if (fields.Length >= 3)
             {
                 NoteInfo noteInfo = new NoteInfo
