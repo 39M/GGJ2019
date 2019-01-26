@@ -17,6 +17,8 @@ public class GameManager : MonoBehaviour
 
     public Animator humanAnimator;
     public Animator petAnimator;
+    public RuntimeAnimatorController petNormalController;
+    public RuntimeAnimatorController petWhenWakeUpController;
 
     public GameObject missEffectPrefab;
     public GameObject hitEffectPrefab;
@@ -24,6 +26,10 @@ public class GameManager : MonoBehaviour
     public float humanHp = 100;
     public GameObject humanBloodHp66;
     public GameObject humanBloodHp33;
+
+    public int humanStateIndex = 0;
+
+    public float audioTime;
 
     void Start()
     {
@@ -48,11 +54,18 @@ public class GameManager : MonoBehaviour
             }
         }
 
-        while (noteInfoList[noteInfoIndex].beatTime + gameConst.hitRange - gameConst.lifetime < startTime)
+        while (noteInfoIndex < noteInfoList.Count && noteInfoList[noteInfoIndex].beatTime + gameConst.hitRange - gameConst.lifetime < startTime)
         {
             noteInfoIndex++;
+            if (noteInfoIndex < noteInfoList.Count)
+            {
+                currentNoteInfo = noteInfoList[noteInfoIndex];
+            }
         }
-        currentNoteInfo = noteInfoList[noteInfoIndex];
+        while (gameConst.humanStateChanges[humanStateIndex].time < startTime)
+        {
+            humanStateIndex++;
+        }
 
         DOTween.defaultEaseType = Ease.Linear;
 
@@ -62,8 +75,26 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        audioTime = audio.time;
+
+        if (humanStateIndex < gameConst.humanStateChanges.Count && gameConst.humanStateChanges[humanStateIndex].time < audio.time)
+        {
+            string stateName = gameConst.humanStateChanges[humanStateIndex].state;
+            humanAnimator.Play(stateName);
+            if (stateName.Equals("OpenEye"))
+            {
+                petAnimator.runtimeAnimatorController = petWhenWakeUpController;
+            }
+            else
+            {
+                petAnimator.runtimeAnimatorController = petNormalController;
+            }
+            humanStateIndex++;
+        }
+
         CreateNotes();
         CheckHit();
+
     }
 
     void CreateNotes()

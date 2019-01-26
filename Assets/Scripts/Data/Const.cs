@@ -27,4 +27,16 @@ public class Const : ScriptableObject
 
     [Tooltip("物体的 Prefab，序号和表中第三列对应")]
     public List<GameObject> notePrefabs;
+
+    public List<HumanStateChange> humanStateChanges;
+}
+
+
+[System.Serializable]
+public class HumanStateChange
+{
+    [Tooltip("对应音乐中的时间")]
+    public float time;
+    [Tooltip("此时要切的状态名")]
+    public string state;
 }

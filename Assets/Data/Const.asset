@@ -23,3 +23,24 @@ MonoBehaviour:
   missHpDrop: 10
   notePrefabs:
   - {fileID: 846653082048187044, guid: 7ae1b55190ffb3a4ca32ad831aa79578, type: 3}
+  humanStateChanges:
+  - time: 48.76
+    state: OpenEye
+  - time: 53.4
+    state: WatchPhone
+  - time: 57.16
+    state: OpenEye
+  - time: 61.44
+    state: WatchPhone
+  - time: 65.28
+    state: Idle
+  - time: 97.68
+    state: OpenEye
+  - time: 102.16
+    state: WatchPhone
+  - time: 105.92
+    state: OpenEye
+  - time: 110.36
+    state: WatchPhone
+  - time: 112.04
+    state: Idle
