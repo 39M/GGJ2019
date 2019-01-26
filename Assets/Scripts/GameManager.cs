@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
 
     VideoPlayer video;
     public VideoClip videoClipED;
+    public GameObject videoMask;
 
     new AudioSource audio;
     public AudioClip soundEffect;
@@ -39,11 +40,20 @@ public class GameManager : MonoBehaviour
     {
         video = GetComponent<VideoPlayer>();
         if (startTime > video.length)
+        {
             video.enabled = false;
+        }
+        else
+        {
+            video.time = startTime;
+            videoMask.SetActive(true);
+        }
 
         audio = GetComponent<AudioSource>();
-        audio.time = startTime;
-        audio.Play();
+        if (startTime > 0)
+        {
+            audio.time = startTime;
+        }
 
         var textAsset = Resources.Load<TextAsset>("NoteInfo");
         var lines = textAsset.text.Split(new[] { "\r\n", "\r", "\n" }, StringSplitOptions.RemoveEmptyEntries);
@@ -103,10 +113,10 @@ public class GameManager : MonoBehaviour
         CreateNotes();
         CheckHit();
 
-
         if (audio.time < gameConst.edTime && audio.time >= video.length && video.enabled)
         {
             video.enabled = false;
+            videoMask.SetActive(false);
         }
         if (audio.time >= gameConst.edTime)
         {
