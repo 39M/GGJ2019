@@ -34,8 +34,7 @@ public class GameManager : MonoBehaviour
     public GameObject hitEffectPrefab;
 
     public float humanHp = 100;
-    public GameObject humanBloodHp66;
-    public GameObject humanBloodHp33;
+    public List<GameObject> bloodList;
 
     public int humanStateIndex = 0;
 
@@ -95,8 +94,8 @@ public class GameManager : MonoBehaviour
 
         DOTween.defaultEaseType = Ease.Linear;
 
-        humanBloodHp33.SetActive(false);
-        humanBloodHp66.SetActive(false);
+        foreach (GameObject go in bloodList)
+            go.SetActive(false);
     }
 
     bool passSecond = false;
@@ -285,13 +284,9 @@ public class GameManager : MonoBehaviour
         noteList.Remove(note);
 
         humanHp -= gameConst.missHpDrop;
-        if (33 - gameConst.missHpDrop / 2 <= humanHp && humanHp <= 33 + gameConst.missHpDrop / 2)
+        for (int i = 0; i < bloodList.Count; i++)
         {
-            humanBloodHp33.SetActive(true);
-        }
-        else if (66 - gameConst.missHpDrop / 2 <= humanHp && humanHp <= 66 + gameConst.missHpDrop / 2)
-        {
-            humanBloodHp66.SetActive(true);
+            bloodList[i].SetActive(humanHp < 100 - (100 / bloodList.Count * (i + 1)));
         }
 
         // audio
