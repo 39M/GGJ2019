@@ -18,7 +18,7 @@ MonoBehaviour:
   rightSpawnPositionMin: {x: 10, y: -2, z: 0}
   rightSpawnPositionMax: {x: 10, y: 1, z: 0}
   rightTargetPosition: {x: 1, y: -1, z: 0}
-  spawnScale: 1.5
+  spawnScale: 2
   targetScale: 0.5
   hitRange: 0.2
   lifetime: 2
