@@ -241,7 +241,7 @@ public class GameManager : MonoBehaviour
 
     void OnHit(Note note)
     {
-        Debug.LogFormat("命中，时间：{0}，节奏点时间：{1}，准确度：{2:P}", audio.time, note.info.beatTime, Mathf.Abs(note.info.beatTime - audio.time) / gameConst.hitRange);
+        Debug.LogFormat("命中，时间：{0}，节奏点时间：{1}，准确度：{2:P}", audio.time, note.info.beatTime, 1 - Mathf.Abs(note.info.beatTime - audio.time) / gameConst.hitRange);
 
         GameObject effect = Instantiate(hitEffectPrefab);
         effect.transform.position = note.gameObject.transform.position;
