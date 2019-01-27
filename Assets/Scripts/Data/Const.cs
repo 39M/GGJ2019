@@ -38,6 +38,11 @@ public class Const : ScriptableObject
     [Tooltip("物体的 Prefab，序号和表中第三列对应")]
     public List<GameObject> notePrefabs;
 
+    [Tooltip("叹号 Prefab 存在时间")]
+    public float whatHappenedPrefabLifetime = 0.5f;
+    [Tooltip("叹号 Prefab")]
+    public List<GameObject> whatHappenedPrefabs;
+
     public List<HumanStateChange> humanStateChanges;
 }
 

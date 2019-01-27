@@ -101,6 +101,7 @@ public class GameManager : MonoBehaviour
 
     bool passSecond = false;
     bool passThird = false;
+    bool openEye = false;
     void Update()
     {
         audioTime = audio.time;
@@ -111,6 +112,7 @@ public class GameManager : MonoBehaviour
             humanAnimator.Play(stateName);
             if (stateName.Equals("OpenEye"))
             {
+                openEye = true;
                 if (audio.time < gameConst.secondStageTime)
                     petAnimator.runtimeAnimatorController = petWhenWakeUpController;
                 else
@@ -118,6 +120,7 @@ public class GameManager : MonoBehaviour
             }
             else
             {
+                openEye = false;
                 if (audio.time < gameConst.secondStageTime)
                     petAnimator.runtimeAnimatorController = petNormalController;
                 else
@@ -216,6 +219,14 @@ public class GameManager : MonoBehaviour
         if (inputRight)
         {
             petAnimator.Play("AttackRight" + UnityEngine.Random.Range(1, 8).ToString());
+        }
+        if (inputRight || inputLeft)
+        {
+            if (openEye)
+            {
+                var go = Instantiate(gameConst.whatHappenedPrefabs[UnityEngine.Random.Range(0, gameConst.whatHappenedPrefabs.Count)]);
+                Destroy(go, gameConst.whatHappenedPrefabLifetime);
+            }
         }
 
         foreach (var note in noteList)

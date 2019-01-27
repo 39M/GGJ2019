@@ -30,6 +30,12 @@ MonoBehaviour:
   - {fileID: 6943952165953580810, guid: 1ab31b8ebc608b74c930127e6ef67d2d, type: 3}
   - {fileID: 2454602428191697144, guid: ecbfbb39d5a60704da395dc78bdfa2e7, type: 3}
   - {fileID: 8118886305891886293, guid: 199fbf08b1194da428369a01a7039c8f, type: 3}
+  whatHappenedPrefabs:
+  - {fileID: 4438293569905944724, guid: d60ae8f459ec21e44afb8210d067bfdb, type: 3}
+  - {fileID: 4374541969962709373, guid: 37b74eb266d9a544b859bcc4acde997a, type: 3}
+  - {fileID: 2354338903101217372, guid: 09dfb7aae13345b40a1bb918d6801ff9, type: 3}
+  - {fileID: 8216156102658600616, guid: 2d24e73ea1c4dbe408c420662b3ae112, type: 3}
+  - {fileID: 5879087996709687151, guid: 77d6af4ac6e5f194b9559d45b3e9590a, type: 3}
   humanStateChanges:
   - time: 48.76
     state: OpenEye
